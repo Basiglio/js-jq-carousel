@@ -15,13 +15,13 @@ $(document).ready(
     // COLLEGO IL CLICK A DESTRA
     $(".next").click(
       function () {
-        nextImage()
+        nextImage();
       }
     );
     // COLLEGO IL CLICK A SINISTRA
     $(".prev").click(
       function () {
-        prevImage()
+        prevImage();
       }
     );
 
@@ -30,7 +30,7 @@ $(document).ready(
         console.log(event.keyCode);
         if (event.keyCode == 37) {
           prevImage();
-        } else if (event.KeyCode == 39)  {
+        } else if (event.keyCode == 39)  {
           nextImage();
         }
       }
@@ -55,7 +55,7 @@ function prevImage() {
     $(".images img.last").addClass("active");
     $(".nav i.last").addClass("active");
   } else {
-    // ALTRIMENTI SPOSTA LA CLASSE SULL'ELELEMTO SUCCESSIVO
+    // ALTRIMENTI SPOSTA LA CLASSE SULL'ELEMENTO SUCCESSIVO
     activeImage.prev("img").addClass("active");
     activeCircle.prev("i").addClass("active");
   }
@@ -75,7 +75,7 @@ function nextImage() {
     $(".images img.first").addClass("active");
     $(".nav i.first").addClass("active");
   } else {
-    // ALTRIMENTI SPOSTA LA CLASSE SULL'ELELEMTO SUCCESSIVO
+    // ALTRIMENTI SPOSTA LA CLASSE SULL'ELEMENTO SUCCESSIVO
     activeImage.next("img").addClass("active");
     activeCircle.next("i").addClass("active");
   }
