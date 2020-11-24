@@ -14,7 +14,7 @@ $(document).ready(
   function () {
     // COLLEGO IL CLICK A DESTRA
     $(".next").click(
-      function () {
+      function nextImage() {
         // SELEZIONO L'IMMAGINE NELL'HTML
         var activeImage = $(".images .active");
         // SELEZIONO I NELL'HTML
@@ -36,7 +36,7 @@ $(document).ready(
     );
     // COLLEGO IL CLICK A SINISTRA
     $(".prev").click(
-      function () {
+      function prevImage() {
         // SELEZIONO L'IMMAGINE NELL'HTML
         var activeImage = $(".images .active");
         // SELEZIONO I NELL'HTML
@@ -56,5 +56,28 @@ $(document).ready(
         }
       }
     );
+
+    $("next").click(
+      function () {
+        nextImage();
+      }
+    );
+    $("prev").click(
+      function () {
+        prevImage();
+      }
+    );
+
+    $(document).keydown(
+      function() {
+        if (event.which == 37) {
+          prevImage();
+        } else if (event.which == 39)  {
+          nextImage();
+        }
+      }
+    );
   }
 );
+
+// MY FUNCTION------------------------------------------------------
