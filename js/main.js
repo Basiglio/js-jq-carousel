@@ -14,65 +14,23 @@ $(document).ready(
   function () {
     // COLLEGO IL CLICK A DESTRA
     $(".next").click(
-      function nextImage() {
-        // SELEZIONO L'IMMAGINE NELL'HTML
-        var activeImage = $(".images .active");
-        // SELEZIONO I NELL'HTML
-        var activeCircle = $(".nav .active");
-        // RIMUOVO LA CLASSE ACTIVE
-        activeImage.removeClass("active");
-        activeCircle.removeClass("active");
-        // SE IL MIO ELEMENTO HA CLASSE LAST
-        if (activeImage.hasClass("last") == true) {
-          // SPOSTA LA CLASSE ACTIVE SULL'ELEMENTO CON CLASSE FIRST
-          $(".images img.first").addClass("active");
-          $(".nav i.first").addClass("active");
-        } else {
-          // ALTRIMENTI SPOSTA LA CLASSE SULL'ELELEMTO SUCCESSIVO
-          activeImage.next("img").addClass("active");
-          activeCircle.next("i").addClass("active");
-        }
+      function () {
+        nextImage()
       }
     );
     // COLLEGO IL CLICK A SINISTRA
     $(".prev").click(
-      function prevImage() {
-        // SELEZIONO L'IMMAGINE NELL'HTML
-        var activeImage = $(".images .active");
-        // SELEZIONO I NELL'HTML
-        var activeCircle = $(".nav .active");
-        // RIMUOVO LA CLASSE ACTIVE
-        activeImage.removeClass("active");
-        activeCircle.removeClass("active");
-        // SE IL MIO ELEMENTO HA CLASSE FIRST
-        if (activeImage.hasClass("first") == true) {
-          // SPOSTA LA CLASSE ACTIVE SULL'ELEMENTO CON CLASSE FIRST
-          $(".images img.last").addClass("active");
-          $(".nav i.last").addClass("active");
-        } else {
-          // ALTRIMENTI SPOSTA LA CLASSE SULL'ELELEMTO SUCCESSIVO
-          activeImage.prev("img").addClass("active");
-          activeCircle.prev("i").addClass("active");
-        }
-      }
-    );
-
-    $("next").click(
       function () {
-        nextImage();
-      }
-    );
-    $("prev").click(
-      function () {
-        prevImage();
+        prevImage()
       }
     );
 
     $(document).keydown(
-      function() {
-        if (event.which == 37) {
+      function () {
+        console.log(event.keyCode);
+        if (event.keyCode == 37) {
           prevImage();
-        } else if (event.which == 39)  {
+        } else if (event.KeyCode == 39)  {
           nextImage();
         }
       }
@@ -80,4 +38,45 @@ $(document).ready(
   }
 );
 
-// MY FUNCTION------------------------------------------------------
+
+// MY FUNCTION------------------------------------------------
+
+function prevImage() {
+  // SELEZIONO L'IMMAGINE NELL'HTML
+  var activeImage = $(".images .active");
+  // SELEZIONO I NELL'HTML
+  var activeCircle = $(".nav .active");
+  // RIMUOVO LA CLASSE ACTIVE
+  activeImage.removeClass("active");
+  activeCircle.removeClass("active");
+  // SE IL MIO ELEMENTO HA CLASSE FIRST
+  if (activeImage.hasClass("first") == true) {
+    // SPOSTA LA CLASSE ACTIVE SULL'ELEMENTO CON CLASSE FIRST
+    $(".images img.last").addClass("active");
+    $(".nav i.last").addClass("active");
+  } else {
+    // ALTRIMENTI SPOSTA LA CLASSE SULL'ELELEMTO SUCCESSIVO
+    activeImage.prev("img").addClass("active");
+    activeCircle.prev("i").addClass("active");
+  }
+}
+
+function nextImage() {
+  // SELEZIONO L'IMMAGINE NELL'HTML
+  var activeImage = $(".images .active");
+  // SELEZIONO I NELL'HTML
+  var activeCircle = $(".nav .active");
+  // RIMUOVO LA CLASSE ACTIVE
+  activeImage.removeClass("active");
+  activeCircle.removeClass("active");
+  // SE IL MIO ELEMENTO HA CLASSE LAST
+  if (activeImage.hasClass("last") == true) {
+    // SPOSTA LA CLASSE ACTIVE SULL'ELEMENTO CON CLASSE FIRST
+    $(".images img.first").addClass("active");
+    $(".nav i.first").addClass("active");
+  } else {
+    // ALTRIMENTI SPOSTA LA CLASSE SULL'ELELEMTO SUCCESSIVO
+    activeImage.next("img").addClass("active");
+    activeCircle.next("i").addClass("active");
+  }
+}
