@@ -40,7 +40,7 @@ $(document).ready(
 
 
 // MY FUNCTION------------------------------------------------
-
+// COLLEGO IL CLICK A SINISTRA
 function prevImage() {
   // SELEZIONO L'IMMAGINE NELL'HTML
   var activeImage = $(".images .active");
@@ -61,6 +61,7 @@ function prevImage() {
   }
 }
 
+// COLLEGO IL CLICK A DESTRA
 function nextImage() {
   // SELEZIONO L'IMMAGINE NELL'HTML
   var activeImage = $(".images .active");
