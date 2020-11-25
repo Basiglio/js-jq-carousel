@@ -16,15 +16,17 @@ $(document).ready(
     $(".next").click(
       function () {
         nextImage();
+        console.log("clicco a destra");
       }
     );
     // COLLEGO IL CLICK A SINISTRA
     $(".prev").click(
       function () {
         prevImage();
+        console.log("clicco a sinistra");
       }
     );
-
+    // COLLEGO I BOTTONI ALLO SCROLL
     $(document).keydown(
       function () {
         console.log(event.keyCode);
@@ -35,11 +37,29 @@ $(document).ready(
         }
       }
     );
+    // COLLEGO IL CLICK AI CERCHI
+    $(".nav i").click(
+      function (){
+        // RIMUOVO IL BACKGROUND DEL CERCHIO AL CLICK
+        $(".nav i").removeClass("active");
+        // AGGIUNGO BACKGROUND DEL CERCHIO AL CLICK
+        $(this).addClass("active");
+        // PRENDO E SALVO LA POSIZIONE DEL CERCHIO IN UNA VAR
+        var circleIndex = $(this).index();
+        // AL CLICK RIMUOVO CLASSE ACTIVE ALL'IMMAGINE
+        $("img").removeClass("active");
+        // AL CLICK AGGIUNGO CLASSE ACTIVE ALL'IMMAGINE IN BASE ALLA POSIZIONE(INDEX) DEL CERCHIO
+        $(".images > img").eq(circleIndex).addClass("active");
+        // CON .EQ SELEZIONO UN ELEMENTO CON UN DETERMINATO INDEX
+      }
+    )
+
   }
 );
 
 
 // MY FUNCTION------------------------------------------------
+
 // COLLEGO IL CLICK A SINISTRA
 function prevImage() {
   // SELEZIONO L'IMMAGINE NELL'HTML
